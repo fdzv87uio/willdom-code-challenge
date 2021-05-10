@@ -66,7 +66,7 @@ export default function Home() {
   const [showAlert, setShowAlert] = useState(false);
 
   useEffect(() => {
-    if (CurrentData === null) {
+    if (CurrentData === null || typeof CurrentData === "undefined") {
       localStorage.setItem("articles", JSON.stringify(localData));
     } else {
       localStorage.setItem("articles", JSON.stringify(CurrentData));
