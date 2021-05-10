@@ -157,23 +157,25 @@ export default function Home() {
             <Col md={5} />
           </Row>
         </Container>
-        {CurrentData.map((article, key) => {
-          if (article !== null) {
-            return (
-              <ArticlePreview
-                title={article.title}
-                description={article.description}
-                publishedAt={article.publishedAt}
-                image={article.image}
-                name={article.name}
-                key={key}
-                pretitle={article.pretitle}
-                deletePost={deletePost}
-                currentKey={article.key}
-              />
-            );
-          }
-        })}
+        {CurrentData
+          ? CurrentData.map((article, key) => {
+              if (article !== null) {
+                return (
+                  <ArticlePreview
+                    title={article.title}
+                    description={article.description}
+                    publishedAt={article.publishedAt}
+                    image={article.image}
+                    name={article.name}
+                    key={key}
+                    pretitle={article.pretitle}
+                    deletePost={deletePost}
+                    currentKey={article.key}
+                  />
+                );
+              }
+            })
+          : null}
       </S.ContentWrapper>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
